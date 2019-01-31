@@ -1,3 +1,4 @@
+import os
 from flask import Flask, redirect, render_template, request, jsonify
 from flask_bootstrap import Bootstrap
 import pickle
@@ -61,6 +62,6 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    # port = int(os.environ.get("PORT", 5000))
+    # app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
     # basic_app.run(host='0.0.0.0', port=port)
