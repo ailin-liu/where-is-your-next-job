@@ -196,6 +196,7 @@
             <div class="col-lg-4 ml-auto">
                 <p class="lead text-center">
                     About the Model: <br>
+                    <br>
                     A logistic regression was trained on approximately 10,000 adult patients using attributes from
                     admissions data limited to age, gender, type of admission, and the initial
                     diagnosis.
@@ -209,7 +210,7 @@
             <div class="col-lg-4 mr-auto">
                 <p class="lead text-center">
 
-                    Select values for the following four (4) attributes:
+                    Enter values for the following four (4) attributes:
 
                 </p>
                 <form id="input" method="post" action="index#predict">
@@ -326,6 +327,7 @@
 
 
                     Prediction Results: <br>
+                    <br>
                     {% if prediction_value %}
                     A {{ gender }} patient who is {{ age }} years old with
                     an {{ type }} admission to the ICU diagnosed with {{ desc }}
@@ -343,8 +345,7 @@
                     medical advice.
 
                     {% else %}
-                    Enter values to the left to make a prediction
-                    with the trained model.
+                    Enter values to make a prediction.
 
                     {% endif %}
 
