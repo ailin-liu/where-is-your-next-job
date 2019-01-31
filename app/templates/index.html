@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Predicting Survival for ICU Patients</title>
+
+    <!-- Bootstrap core CSS -->
+    <!--<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="{{url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+
+    <!-- Custom fonts for this template -->
+    <!--<link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
+    <link href="{{url_for('static', filename = 'vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet"
+          type="text/css">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css">
+
+    <!-- Plugin CSS -->
+    <!--<link href="../static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">-->
+    <link href="{{url_for('static', filename = 'vendor/magnific-popup/magnific-popup.css')}}" rel="stylesheet"
+          type="text/css">
+
+    <!-- Custom styles for this template -->
+    <!--<link href="../static/css/freelancer.min.css" rel="stylesheet">-->
+    <link href="{{url_for('static', filename = 'css/freelancer.min.css')}}" rel="stylesheet">
+
+
+</head>
+
+<body id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Homepage</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button"
+                data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#explore">Explore</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#predict">Predict</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#learn">Learn More</a>
+                </li>
+                <!--<li class="nav-item mx-0 mx-lg-1">-->
+                <!--<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="masthead bg-primary text-white text-center">
+    <div class="container">
+        <!--<img class="img-fluid mb-5 d-block mx-auto" src="/static/img/heart_sq.png" alt="">-->
+        <img class="img-fluid mb-5 d-block mx-auto" src="{{url_for('static', filename='img/heart_sq.png')}}" alt="">
+        <h1 class="text-uppercase mb-0">Predicting Survival Outcomes</h1>
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0">Calculate the survival probability of ICU patients using EHR data</h2>
+    </div>
+</header>
+
+
+<!-- About Section -->
+<section id="about">
+
+    <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">About</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+
+            <div class="ml-auto">
+                <p class="lead">
+
+                    Patients that enter the Intensive Care Unit (ICU) require specialized care and
+                    close monitoring to address often severe and life-threatening conditions. Different studies have
+                    found that between 55-75% of patients survive. This can lead one to consider if we can use machine
+                    learning to model patients' survival outcomes using available health data. <br>
+                    <br>
+
+                    MIMIC-III (Medical Information Mart for Intensive Care) is a clinical database comprised of
+                    deidentified health-related data from 2001 and 2012 associated with over 46,000 ICU patients.
+                    MIMIC has substantial medical information ranging from patient demographics to detailed clinical
+                    notes.<br>
+                    <br>
+
+
+                </p>
+            </div>
+
+            <div class="col-lg-4 mr-auto">
+                <p class="lead text-center">
+
+                    Ask: <br>
+                    Can we predict the probability of a patient surviving after being admitted to the ICU
+                    using only their admission information?
+
+                </p>
+            </div>
+
+            <div class="col-lg-4 mr-auto">
+                <p class="lead text-center">
+
+                    Response: <br>
+                    A machine learning model was trained to predict the probability of survival
+                    for patients being admitted to the ICU using only their admissions data.
+
+                </p>
+            </div>
+
+            <div class="col-lg-4 mr-auto">
+                <p class="lead text-center">
+
+                    Explore: <br>
+                    Before experimenting with the predictive model, continue onward to learn more about the data
+                    and how a subset of the original dataset was selected to use for training the model.
+
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Explore Section -->
+<section class="bg-primary text-white mb-0" id="explore">
+    <div class="container">
+        <h2 class="text-center text-uppercase text-white">Explore The Data</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
+                    <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                        <div class="portfolio-item-caption-content my-auto w-100 text-center text">
+                            <i class="fas fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="{{url_for('static', filename='img/age_of_admit.png')}}" alt="">
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
+                    <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                        <div class="portfolio-item-caption-content my-auto w-100 text-center text">
+                            <i class="fas fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="{{url_for('static', filename='img/days_in_icu.png')}}" alt="">
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
+                    <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                        <div class="portfolio-item-caption-content my-auto w-100 text-center text">
+                            <i class="fas fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="{{url_for('static', filename='img/type_of_admit.png')}}" alt="">
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Predict Section -->
+<section id="predict">
+    <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Make A Prediction</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+            <div class="col-lg-4 ml-auto">
+                <p class="lead text-center">
+                    About the Model: <br>
+                    A logistic regression was trained on approximately 10,000 patients using attributes from
+                    admissions data limited to age, gender, type of admission, and the initial
+                    diagnosis.
+
+                    Enter TF-IDF Info.
+
+                </p>
+            </div>
+
+
+            <div class="col-lg-4 mr-auto">
+                <p class="lead text-center">
+
+                    Select values for the following four (4) attributes:
+
+                </p>
+                <form id="input" method="post" action="index#predict">
+                    <p>
+                        1. Age [18, 89]: <input type="text" name="age"/> <br> <br>
+
+                        2. Gender:
+                        <select name="gender">
+                            <option value="0">Female</option>
+                            <option value="1">Male</option>
+                        </select> <br> <br>
+
+                        3. Type of Admission:
+                        <select name="type">
+                            <option value="0">Elective</option>
+                            <option value="1">Emergency</option>
+                            <option value="2">Urgent</option>
+                        </select> <br> <br>
+
+                        4. Initial Diagnosis:
+                        <select name="description">
+                            <option value="BENZODIAZEPINE OVERDOSE">Benzodiazepine Overdose</option>
+                            <option value="BRAIN MASS">Brain Mass</option>
+                            <option value="FEVER">Fever</option>
+                            <option value="HEART FAILURE KIDNEY RENAL FAILURE">Heart and Kidney Failure</option>
+                            <option value="INTRACRANIAL HEMORRHAGE">Intracranial Hemorrhage</option>
+                            <option value="LIVER FAILURE">Liver Failure</option>
+                            <option value="PNEUMONIA">Pneumonia</option>
+                            <option value="SEPSIS">Sepsis</option>
+                        </select> <br> <br>
+                    </p>
+                    <p>
+                        <input type="submit" value="Make a prediction!"/>
+                    </p>
+                </form>
+            </div>
+
+            <div class="col-lg-4 ml-auto">
+                <p class="lead text-center">
+
+
+                    Prediction Results: <br>
+                    {% if prediction_value %}
+                    A {{ gender }} patient who is {{ age }} years old with
+                    an {{ type }} admission to the ICU diagnosed with {{ desc }}
+                    is expected to have {{ prediction_value }}% chance
+                    of survival.
+                    <br>
+
+                    <br>
+                    What does this result mean? <br>
+                    This is the prediction of a simple logistic regression
+                    model using only the 4 attributes entered.
+                    There are numerous other factors such as
+                    medical history and treatment that can affect
+                    survival rate. Please do not consider this as
+                    medical advice.
+
+                    {% else %}
+                    Enter values to the left to make a prediction
+                    with the trained model.
+
+                    {% endif %}
+
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Learn More Section -->
+<section class="footer text-center" id="learn">
+    <div class="container">
+        <h2 class="text-center text-uppercase text-white text center">Learn More</h2>
+        <hr class="star mb-5">
+
+        <div class="row">
+            <div class="col-md-4 mb-5 mb-lg-0">
+                <h4 class="text-uppercase mb-4">MIMIC</h4>
+                <p class="lead mb-0"> Access to
+                    <a href="https://mimic.mit.edu/about/mimic/">MIMIC</a> is available through request.</p>
+            </div>
+            <div class="col-md-4 mb-5 mb-lg-0">
+                <h4 class="mb-4">Find Vasudha Gupta on:</h4>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                            <i class="fab fa-fw fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                            <i class="fab fa-fw fa-twitter"></i>
+                        </a>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                            <i class="fab fa-fw fa-github"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4 class="text-uppercase mb-4 ">Code</h4>
+                <p class="lead mb-0">Source code for this app is available through its
+                    <a href="https://github.com/vasudhathinks/Personal-Projects/blob/master/Healthcare_Project/final_proposal/Project%20Proposal.ipynb">github
+                        repo</a>.</p>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+<!-- Footer -->
+<div class="copyright py-4 text-center text-white">
+    <div class="container">
+        <small>Copyright &copy; Vasudha Gupta + Start Bootstrap 2019</small>
+    </div>
+</div>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+<!-- Portfolio Modals -->
+
+<!-- Portfolio Modal 1 -->
+<div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
+    <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+            <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-secondary text-uppercase mb-0">Age of Patients</h2>
+                    <hr class="star-dark mb-5">
+                    <img class="img-fluid mb-5" src="{{url_for('static', filename='img/age_of_admit.png')}}" alt="">
+                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda
+                        ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
+                        Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                    <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                        <i class="fa fa-close"></i>
+                        Close Window</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 2 -->
+<div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
+    <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+            <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-secondary text-uppercase mb-0">Length of ICU Stay</h2>
+                    <hr class="star-dark mb-5">
+                    <img class="img-fluid mb-5" src="{{url_for('static', filename='img/days_in_icu.png')}}" alt="">
+                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda
+                        ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
+                        Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                    <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                        <i class="fa fa-close"></i>
+                        Close Window</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 3 -->
+<div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
+    <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+            <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-secondary text-uppercase mb-0">Type of ICU Admission</h2>
+                    <hr class="star-dark mb-5">
+                    <img class="img-fluid mb-5" src="{{url_for('static', filename='img/type_of_admit.png')}}" alt="">
+                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda
+                        ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
+                        Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                    <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                        <i class="fa fa-close"></i>
+                        Close Window</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{{url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+<script src="{{url_for('static', filename='vendor/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+
+<!-- Contact Form JavaScript -->
+<script src="{{url_for('static', filename='js/jqBootstrapValidation.js')}}"></script>
+<script src="{{url_for('static', filename='js/contact_me.js')}}"></script>
+
+<!-- Custom scripts for this template -->
+<script src="{{url_for('static', filename='js/freelancer.min.js')}}"></script>
+
+</body>
+
+</html>
