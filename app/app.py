@@ -1,4 +1,3 @@
-import os
 from flask import Flask, redirect, render_template, request, jsonify
 from flask_bootstrap import Bootstrap
 import pickle
