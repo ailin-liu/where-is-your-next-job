@@ -198,10 +198,13 @@
                     About the Model: <br>
                     <br>
                     A logistic regression was trained on approximately 10,000 adult patients using attributes from
-                    admissions data limited to age, gender, type of admission, and the initial
+                    admissions data: age, gender, type of admission, and the initial
                     diagnosis.
                     <br>
-                    Talk about TF-IDF.
+                    The key attribute here is the initial diagnosis which is a preliminary, free text diagnosis usually
+                    assigned by the admitting clinician. This attribute was vectorized across the 10,000 patients
+                    with term frequency-inverse document frequency (TF-IDF) to retrieve significant terms. When
+                    vectorized, the initial diagnosis is equivalent to approximately 2,000 features.
 
                 </p>
             </div>
@@ -297,7 +300,7 @@
                             <option value="1">Male</option>
                         </select> <br> <br>
 
-                        3. Type of Admission:
+                        3. Type of ICU Admission:
                         <select name="type">
                             <option value="0">Elective</option>
                             <option value="1">Emergency</option>
@@ -308,11 +311,15 @@
                         <select name="description">
                             <option value="BENZODIAZEPINE OVERDOSE">Benzodiazepine Overdose</option>
                             <option value="BRAIN MASS">Brain Mass</option>
+                            <option value="CHEST">Chest Pain</option>
+                            <option value="CONGESTIVE HEART FAILURE">Congestive Heart Failure</option>
                             <option value="FEVER">Fever</option>
-                            <option value="HEART FAILURE KIDNEY RENAL FAILURE">Heart and Kidney Failure</option>
+                            <option value="KIDNEY RENAL FAILURE">Kidney Failure</option>
                             <option value="INTRACRANIAL HEMORRHAGE">Intracranial Hemorrhage</option>
                             <option value="LIVER FAILURE">Liver Failure</option>
+                            <option value="PELVIC FRACTURE">Pelvic Fracture</option>
                             <option value="PNEUMONIA">Pneumonia</option>
+                            <option value="SEIZURE">Seizure</option>
                             <option value="SEPSIS">Sepsis</option>
                         </select> <br> <br>
                     </p>
@@ -337,9 +344,9 @@
 
                     <br>
                     What does this result mean? <br>
-                    This is the prediction of a simple logistic regression
-                    model using only the 4 attributes entered.
-                    There are numerous other factors such as
+                    This is the prediction of a logistic regression
+                    model trained on the 4 attributes of 10,000 patients, but
+                    there are numerous other factors such as
                     medical history and treatment that can affect
                     survival rate. Please do not consider this as
                     medical advice.
@@ -373,18 +380,21 @@
                 <h4 class="mb-4">Find Vasudha Gupta on:</h4>
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
-                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle"
+                           href="https://www.linkedin.com/in/vasudhagupta">
                             <i class="fab fa-fw fa-linkedin-in"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle"
+                           href="https://twitter.com/vasudhathinks">
                             <i class="fab fa-fw fa-twitter"></i>
                         </a>
                     </li>
 
                     <li class="list-inline-item">
-                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle"
+                           href="https://github.com/vasudhathinks/">
                             <i class="fab fa-fw fa-github"></i>
                         </a>
                     </li>
