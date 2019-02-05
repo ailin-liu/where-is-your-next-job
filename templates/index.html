@@ -123,9 +123,7 @@
 
                     Response: <br>
                     A machine learning model was trained to predict the probability of survival
-                    for patients admitted to the ICU using attributes from admissions.
-
-                    <!--age, gender, type of admission, and the initial diagnosis -->
+                    for patients admitted to the ICU using attributes from admissions data.
                 </p>
             </div>
 
@@ -179,6 +177,43 @@
                     </div>
                     <img class="img-fluid" src="{{url_for('static', filename='img/type_of_admit.png')}}" alt="">
                 </a>
+            </div>
+
+            <div class="ml-auto">
+                <p class="lead text-white">
+                    <br>
+                    <br>
+
+                    After doing some exploratory data analysis, the following four attributes
+                    were selected to train the predictive model: age, gender, type of admission, and initial diagnosis.
+                    <br>
+                    <br>
+                    Age represents the continuous variable of a patient's age, while gender and type of admission
+                    are
+                    categorical variables. Based on the dataset, gender can be either female or male and the
+                    three
+                    types of admissions are elective, emergency, and urgent. MIMIC provides that
+                    the main different between elective and emergency/urgent is that elective
+                    indicates a planned medical visit.
+                    <br>
+                    <br>
+                    The initial diagnosis is a preliminary diagnosis of the patient at hospital admission
+                    usually assigned by the admitting clinician. This attribute is single line of free text. This
+                    project expects that this attribute holds a great deal of information that is not present or
+                    available in the numerical or categorical data.
+                    <br>
+                    <br>
+                    Of the original 46,000+ patients, the dataset was filtered for adults between the ages of 18 and 89
+                    and
+                    for patients who spent less than or equal to 30 days in the ICU.
+                    Patients who did not survive were determined by those who passed away within 1 day of being
+                    discharged (inclusive of passing away in the ICU). This resulted in approximately 25,000 unique
+                    patients, of whom 5,000 did not survive. To have a balanced dataset for training the model,
+                    a random selection of
+                    5,000 patients was selected from the 20,000 who survived.
+
+
+                </p>
             </div>
 
         </div>
