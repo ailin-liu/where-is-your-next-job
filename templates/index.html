@@ -184,33 +184,34 @@
                     <br>
                     <br>
 
-                    After doing some exploratory data analysis, the following four attributes
+                    After some exploratory data analysis, the following 4 attributes
                     were selected to train the predictive model: age, gender, type of admission, and initial diagnosis.
                     <br>
                     <br>
                     Age represents the continuous variable of a patient's age, while gender and type of admission
                     are
-                    categorical variables. Based on the dataset, gender can be either female or male and the
-                    three
+                    categorical variables. Based on the dataset, gender can be either female or male and the 3
                     types of admissions are elective, emergency, and urgent. MIMIC provides that
-                    the main different between elective and emergency/urgent is that elective
+                    the main difference between elective and emergency/urgent is that elective
                     indicates a planned medical visit.
                     <br>
                     <br>
                     The initial diagnosis is a preliminary diagnosis of the patient at hospital admission
-                    usually assigned by the admitting clinician. This attribute is single line of free text. This
-                    project expects that this attribute holds a great deal of information that is not present or
+                    usually assigned by the admitting clinician. This attribute is single line of free text.
+                    Examples include: 'Pneumonia' and 'Post-op knee infection'. This
+                    project expects that this text attribute holds a great deal of information that is not
                     available in the numerical or categorical data.
                     <br>
                     <br>
                     Of the original 46,000+ patients, the dataset was filtered for adults between the ages of 18 and 89
                     and
-                    for patients who spent less than or equal to 30 days in the ICU.
+                    for patients who spent less than 31 days in the ICU.
                     Patients who did not survive were determined by those who passed away within 1 day of being
                     discharged (inclusive of passing away in the ICU). This resulted in approximately 25,000 unique
-                    patients, of whom 5,000 did not survive. To have a balanced dataset for training the model,
+                    patients, of whom about 5,000 did not survive. To have a balanced dataset,
                     a random selection of
-                    5,000 patients was selected from the 20,000 who survived.
+                    5,000 patients was selected from the 20,000 who survived to train the model along with the
+                    5,000 who did not survive.
 
 
                 </p>
@@ -233,12 +234,11 @@
                 <p class="lead text-center">
                     About the Model: <br>
                     <br>
-                    A logistic regression model was trained on approximately 10,000 adult patients using the
-                    continuous attribute of age, categorical attributes of gender and admission type, and text
-                    attribute of initial diagnosis. <br>
+                    A logistic regression model was trained on approximately 10,000 adult patients using attributes
+                    of age, gender, admission type, and initial diagnosis. <br>
                     <br>
                     The initial diagnosis
-                    was vectorized to retrieve word significance
+                    was vectorized to retrieve term significance
                     with term frequency-inverse document frequency (TF-IDF).
 
                 </p>
@@ -248,7 +248,7 @@
             <div class="col-lg-4 mr-auto">
                 <p class="lead text-center">
 
-                    Enter values for the <br>
+                    Enter values for the
                     following 4 attributes:
 
                 </p>
@@ -373,15 +373,14 @@
                     <br>
                     {% if prediction_value %}
                     A {{ gender }} patient who is {{ age }} years old with
-                    an {{ type }} admission to the ICU diagnosed with {{ desc }}
+                    an {{ type }} admission to the ICU and diagnosed with {{ desc }}
                     is expected to have <br>
                     {{ prediction_value }}% chance of survival.
                     <br>
 
                     <br>
                     What does this result mean? <br>
-                    This is the prediction of a model trained on
-                    these 4 attributes, but
+                    This is the prediction of a model trained on a specific set of attributes and patients, but
                     there are numerous other factors such as
                     medical history and treatment that can affect
                     survival rate. <br>
@@ -415,7 +414,7 @@
                     <a href="https://mimic.mit.edu/about/mimic/">MIMIC</a> is available through request.</p>
             </div>
             <div class="col-md-4 mb-5 mb-lg-0">
-                <h4 class="mb-4">Find Vasudha Gupta on:</h4>
+                <h4 class="mb-4">Find Vasudha Gupta</h4>
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
                         <a class="btn btn-outline-light btn-social text-center rounded-circle"
