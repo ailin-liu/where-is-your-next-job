@@ -241,7 +241,8 @@
                     <br>
                     The train and test accuracies of this model were approximately 77% and 75% (with a threshold of
                     0.5), respectively&mdash;thus,
-                    overfitting does not appear to be a notable concern. The AUROC for the model was approximately 0.78.
+                    overfitting does not appear to be a notable concern. The AUROC when trained on the entire
+                    dataset was approximately 0.78.
 
                 </p>
             </div>
@@ -480,7 +481,17 @@
                     <h2 class="text-secondary text-uppercase mb-0">Length of ICU Stay</h2>
                     <hr class="star-dark mb-5">
                     <img class="img-fluid mb-5" src="{{url_for('static', filename='img/days_in_icu.png')}}" alt="">
-                    <p class="mb-5">Most patients spend a short period of time in the ICU.</p>
+                    <p class="mb-5">
+                        Most patients spend a short period of time in the ICU and a significant amount spend up to 1
+                        day. This graph shows that the number of patients who survive substantially decreases as the
+                        number of days spent in the ICU increases. There is a slower [declining] progression for
+                        patients who do not survive.
+                        <br>
+                        <br>
+                        Nevertheless, this project expects that patients that remain in the ICU for a long period of
+                        time have more critical needs than the average ICU patient. Thus, a cutoff of 30 days was
+                        selected and only patients that spent up to 30 days in the ICU were considered for this project.
+                    </p>
                     <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
                         <i class="fa fa-close"></i>
                         Close Window</a>
@@ -502,9 +513,11 @@
                     <h2 class="text-secondary text-uppercase mb-0">Age of Patients</h2>
                     <hr class="star-dark mb-5">
                     <img class="img-fluid mb-5" src="{{url_for('static', filename='img/age_of_admit.png')}}" alt="">
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda
-                        ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
-                        Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                    <p class="mb-5">
+                        This graph shows that the majority of patients entering the ICU are between the ages of 40 and
+                        90. More importantly, we can see a trend that the ICU admits more older patients (age determined
+                        by their decade-age/year) and more patient end up not surviving as age increases.
+                    </p>
                     <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
                         <i class="fa fa-close"></i>
                         Close Window</a>
