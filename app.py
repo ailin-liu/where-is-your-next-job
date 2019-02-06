@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.vars = {}
 Bootstrap(app)
 
-dir_path = 'data/'
+dir_path = 'models/'
 
 # Load Pickled Models
 with open(dir_path + 'tfidf_vectorizer.pkl', 'rb') as tv:
