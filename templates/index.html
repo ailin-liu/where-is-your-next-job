@@ -194,12 +194,13 @@
                     indicates a planned medical visit.
                     <br>
                     <br>
-                    The initial diagnosis is a preliminary diagnosis of the patient at hospital admission
-                    usually assigned by the admitting clinician. This attribute is single line of free text.
-                    Examples include: 'Pneumonia' and 'Post-op knee infection'. This
+                    The initial diagnosis is the preliminary diagnosis of a patient at hospital admission
+                    usually assigned by the admitting clinician. This attribute is a line of free text&mdash;and this
                     project expects that this text attribute holds a great deal of information that is not
-                    available in the numerical or categorical data.
-                    <br>
+                    available in the numerical or categorical data.<br>
+                    Examples of initial diagnoses include: <br>
+                    - 'Pneumonia'<br>
+                    - 'Post-op knee infection'<br>
                     <br>
                     Of the original 46,000+ patients, the dataset was filtered for adults between the ages of 18 and 89
                     and
@@ -239,8 +240,8 @@
                     was vectorized to retrieve term significance
                     with term frequency-inverse document frequency (TF-IDF).<br>
                     <br>
-                    The train and test accuracies of this model were approximately 77% and 75% (with a threshold of
-                    0.5), respectively&mdash;thus,
+                    The train and test accuracies of this model were between 75-77% with a threshold of
+                    0.5&mdash;thus,
                     overfitting does not appear to be a notable concern. The AUROC when trained on the entire
                     dataset was approximately 0.78.
 
