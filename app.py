@@ -55,7 +55,7 @@ def index():
             app.vars['type'] = 'urgent'
         app.vars['description'] = description.lower()
 
-        return render_template('index.html', _anchor="predict",
+        return render_template('index.html', _anchor="result",
                                age=app.vars['age'], gender=app.vars['gender'],
                                type=app.vars['type'], desc=app.vars['description'],
                                prediction_value=percent_of_survival)
