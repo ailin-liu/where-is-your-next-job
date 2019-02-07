@@ -43,10 +43,10 @@ def index():
 
         # Save vars for re-rendering:
         app.vars['age'] = age
-        if gender == 0:
-            app.vars['gender'] = 'female'
-        else:
+        if gender == 1:
             app.vars['gender'] = 'male'
+        else:
+            app.vars['gender'] = 'female'
         if type == 0:
             app.vars['type'] = 'elective'
         elif type == 1:
