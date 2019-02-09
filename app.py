@@ -28,7 +28,7 @@ def index():
     if request.method == 'GET':
         return render_template('index.html')
     else:
-        age = request.form['age']
+        age = int(request.form['age'])
         gender = int(request.form['gender'])
         type = int(request.form['type'])
         description = request.form['description']

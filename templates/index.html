@@ -337,17 +337,17 @@
 
                         2. Gender:
                         <select name="gender">
-                            <option value="0" {% if gender=="female" %} selected="selected" {% endif %}>Female</option>
-                            <option value="1" {% if gender=="male" %} selected="selected" {% endif %}>Male</option>
+                            <option value=0 {% if gender=="female" %} selected="selected" {% endif %}>Female</option>
+                            <option value=1 {% if gender=="male" %} selected="selected" {% endif %}>Male</option>
                         </select> <br> <br>
 
                         3. Type of ICU Admission:
                         <select name="type">
-                            <option value="0" {% if type=="elective" %} selected="selected" {% endif %}>Elective
+                            <option value=0 {% if type=="elective" %} selected="selected" {% endif %}>Elective
                             </option>
-                            <option value="1" {% if type=="emergency" %} selected="selected" {% endif %}>Emergency
+                            <option value=1 {% if type=="emergency" %} selected="selected" {% endif %}>Emergency
                             </option>
-                            <option value="2" {% if type=="urgent" %} selected="selected" {% endif %}>Urgent</option>
+                            <option value=2 {% if type=="urgent" %} selected="selected" {% endif %}>Urgent</option>
                         </select> <br> <br>
 
                         4. Initial Diagnosis:
