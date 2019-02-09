@@ -343,30 +343,27 @@
 
                         3. Type of ICU Admission:
                         <select name="type">
-                            <option value=0 {% if type=="elective" %} selected="selected" {% endif %}>Elective
-                            </option>
-                            <option value=1 {% if type=="emergency" %} selected="selected" {% endif %}>Emergency
-                            </option>
+                            <option value=0 {% if type=="elective" %} selected="selected" {% endif %}>Elective</option>
+                            <option value=1 {% if type=="emergency" %} selected="selected" {% endif %}>Emergency</option>
                             <option value=2 {% if type=="urgent" %} selected="selected" {% endif %}>Urgent</option>
                         </select> <br> <br>
 
                         4. Initial Diagnosis:
                         <select name="description">
-                            <option value="BENZODIAZEPINE OVERDOSE">Benzodiazepine Overdose</option>
-                            <option value="CHEST PAIN">Chest Pain</option>
-                            <option value="CONGESTIVE HEART FAILURE">Congestive Heart Failure</option>
-                            <option value="KIDNEY FAILURE">Kidney Failure</option>
-                            <option value="INTRACRANIAL HEMORRHAGE">Intracranial Hemorrhage</option>
-                            <option value="LIVER FAILURE">Liver Failure</option>
-                            <option value="PELVIC FRACTURE">Pelvic Fracture</option>
-                            <option value="PNEUMONIA" {% if desc=="pneumonia" %} selected="selected" {% endif %}>Pneumonia</option>
-                            <option value="SEIZURE" {% if desc=="seizure" %} selected="selected" {% endif %}>Seizure</option>
-                            <option value="SEPSIS" {% if desc=="sepsis" %} selected="selected" {% endif %}>Sepsis</option>
+                            <option value="BENZODIAZEPINE OVERDOSE" {% if desc=="BENZODIAZEPINE" %} selected="selected" {% endif %}>Benzodiazepine Overdose</option>
+                            <option value="CHEST PAIN" {% if desc=="CHEST" %} selected="selected" {% endif %}>Chest Pain</option>
+                            <option value="CONGESTIVE HEART FAILURE" {% if desc=="CONGESTIVE" %} selected="selected" {% endif %}>Congestive Heart Failure</option>
+                            <option value="KIDNEY FAILURE" {% if desc=="KIDNEY" %} selected="selected" {% endif %}>Kidney Failure</option>
+                            <option value="INTRACRANIAL HEMORRHAGE" {% if desc=="INTRACRANIAL" %} selected="selected" {% endif %}>Intracranial Hemorrhage</option>
+                            <option value="LIVER FAILURE" {% if desc=="LIVER" %} selected="selected" {% endif %}>Liver Failure</option>
+                            <option value="PELVIC FRACTURE" {% if desc=="PELVIC" %} selected="selected" {% endif %}>Pelvic Fracture</option>
+                            <option value="PNEUMONIA" {% if desc=="PNEUMONIA" %} selected="selected" {% endif %}>Pneumonia</option>
+                            <option value="SEIZURE" {% if desc=="SEIZURE" %} selected="selected" {% endif %}>Seizure</option>
+                            <option value="SEPSIS" {% if desc=="SEPSIS" %} selected="selected" {% endif %}>Sepsis</option>
                         </select> <br> <br>
                     </p>
                     <p>
                         <input type="submit" value="Make a prediction!"/>
-                        <!--<input id="start_data" type="text" name="start_date" value="{{ request.form['start_date'] }}"/>-->
                     </p>
                 </form>
             </div>
@@ -379,7 +376,7 @@
                     <br>
                     {% if prediction_value %}
                     A {{ gender }} patient who is {{ age }} years old with
-                    an {{ type }} admission to the ICU and diagnosed with {{ desc }}
+                    an {{ type }} admission to the ICU and diagnosed with {{ description }}
                     is expected to have <br>
                     {{ prediction_value }}% chance of survival.
                     <br>

@@ -54,10 +54,11 @@ def index():
         else:
             app.vars['type'] = 'urgent'
         app.vars['description'] = description.lower()
+        app.vars['desc'] = description.split()[0]
 
         return render_template('index.html', _anchor="predict",
                                age=app.vars['age'], gender=app.vars['gender'],
-                               type=app.vars['type'], desc=app.vars['description'],
+                               type=app.vars['type'], description=app.vars['description'], desc=app.vars['desc'],
                                prediction_value=percent_of_survival)
 
 
