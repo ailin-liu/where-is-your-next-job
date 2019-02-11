@@ -11,12 +11,10 @@
     <title>Predicting Survival Outcomes for ICU Patients</title>
 
     <!-- Bootstrap core CSS -->
-    <!--<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="{{url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
 
     <!-- Custom fonts for this template -->
-    <!--<link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">-->
     <link href="{{url_for('static', filename = 'vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet"
           type="text/css">
 
@@ -25,12 +23,10 @@
           type="text/css">
 
     <!-- Plugin CSS -->
-    <!--<link href="../static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">-->
     <link href="{{url_for('static', filename = 'vendor/magnific-popup/magnific-popup.css')}}" rel="stylesheet"
           type="text/css">
 
     <!-- Custom styles for this template -->
-    <!--<link href="../static/css/freelancer.min.css" rel="stylesheet">-->
     <link href="{{url_for('static', filename = 'css/freelancer.min.css')}}" rel="stylesheet">
 
 
@@ -62,9 +58,6 @@
                 <li class="nav-item mx-0 mx-lg-1">
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#learn">Learn More</a>
                 </li>
-                <!--<li class="nav-item mx-0 mx-lg-1">-->
-                <!--<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>-->
-                <!--</li>-->
             </ul>
         </div>
     </div>
@@ -73,7 +66,6 @@
 <!-- Header -->
 <header class="masthead bg-primary text-white text-center">
     <div class="container">
-        <!--<img class="img-fluid mb-5 d-block mx-auto" src="/static/img/heart_sq.png" alt="">-->
         <img class="img-fluid mb-5 d-block mx-auto" src="{{url_for('static', filename='img/heart_sq.png')}}" alt="">
         <h1 class="text-uppercase mb-0">Predicting Survival Outcomes</h1>
         <hr class="star-light">
@@ -344,22 +336,41 @@
                         3. Type of ICU Admission:
                         <select name="type">
                             <option value=0 {% if type=="elective" %} selected="selected" {% endif %}>Elective</option>
-                            <option value=1 {% if type=="emergency" %} selected="selected" {% endif %}>Emergency</option>
+                            <option value=1 {% if type=="emergency" %} selected="selected" {% endif %}>Emergency
+                            </option>
                             <option value=2 {% if type=="urgent" %} selected="selected" {% endif %}>Urgent</option>
                         </select> <br> <br>
 
                         4. Initial Diagnosis:
                         <select name="description">
-                            <option value="BENZODIAZEPINE OVERDOSE" {% if desc=="BENZODIAZEPINE" %} selected="selected" {% endif %}>Benzodiazepine Overdose</option>
-                            <option value="CHEST PAIN" {% if desc=="CHEST" %} selected="selected" {% endif %}>Chest Pain</option>
-                            <option value="CONGESTIVE HEART FAILURE" {% if desc=="CONGESTIVE" %} selected="selected" {% endif %}>Congestive Heart Failure</option>
-                            <option value="KIDNEY FAILURE" {% if desc=="KIDNEY" %} selected="selected" {% endif %}>Kidney Failure</option>
-                            <option value="INTRACRANIAL HEMORRHAGE" {% if desc=="INTRACRANIAL" %} selected="selected" {% endif %}>Intracranial Hemorrhage</option>
-                            <option value="LIVER FAILURE" {% if desc=="LIVER" %} selected="selected" {% endif %}>Liver Failure</option>
-                            <option value="PELVIC FRACTURE" {% if desc=="PELVIC" %} selected="selected" {% endif %}>Pelvic Fracture</option>
-                            <option value="PNEUMONIA" {% if desc=="PNEUMONIA" %} selected="selected" {% endif %}>Pneumonia</option>
-                            <option value="SEIZURE" {% if desc=="SEIZURE" %} selected="selected" {% endif %}>Seizure</option>
-                            <option value="SEPSIS" {% if desc=="SEPSIS" %} selected="selected" {% endif %}>Sepsis</option>
+                            <option value="BENZODIAZEPINE OVERDOSE" {% if desc=="BENZODIAZEPINE" %} selected="selected"
+                                    {% endif %}>Benzodiazepine Overdose
+                            </option>
+                            <option value="CHEST PAIN" {% if desc=="CHEST" %} selected="selected" {% endif %}>Chest
+                                Pain
+                            </option>
+                            <option value="CONGESTIVE HEART FAILURE" {% if desc=="CONGESTIVE" %} selected="selected" {%
+                                    endif %}>Congestive Heart Failure
+                            </option>
+                            <option value="KIDNEY FAILURE" {% if desc=="KIDNEY" %} selected="selected" {% endif %}>
+                                Kidney Failure
+                            </option>
+                            <option value="INTRACRANIAL HEMORRHAGE" {% if desc=="INTRACRANIAL" %} selected="selected" {%
+                                    endif %}>Intracranial Hemorrhage
+                            </option>
+                            <option value="LIVER FAILURE" {% if desc=="LIVER" %} selected="selected" {% endif %}>Liver
+                                Failure
+                            </option>
+                            <option value="PELVIC FRACTURE" {% if desc=="PELVIC" %} selected="selected" {% endif %}>
+                                Pelvic Fracture
+                            </option>
+                            <option value="PNEUMONIA" {% if desc=="PNEUMONIA" %} selected="selected" {% endif %}>
+                                Pneumonia
+                            </option>
+                            <option value="SEIZURE" {% if desc=="SEIZURE" %} selected="selected" {% endif %}>Seizure
+                            </option>
+                            <option value="SEPSIS" {% if desc=="SEPSIS" %} selected="selected" {% endif %}>Sepsis
+                            </option>
                         </select> <br> <br>
                     </p>
                     <p>
@@ -408,7 +419,7 @@
 <section class="footer text-center" id="learn">
     <div class="container">
         <h2 class="text-center text-uppercase text-white text center">Learn More</h2>
-        <hr class="star mb-5">
+        <hr class="mb-5">
 
         <div class="row">
             <div class="col-md-4 mb-5 mb-lg-0">
@@ -467,9 +478,10 @@
     </a>
 </div>
 
-<!-- Portfolio Modals -->
 
-<!-- Portfolio Modal 1 -->
+<!-- Explore Images -->
+
+<!-- Explore Modal 1 -->
 <div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
     <div class="portfolio-modal-dialog bg-white">
         <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
@@ -502,7 +514,7 @@
     </div>
 </div>
 
-<!-- Portfolio Modal 2 -->
+<!-- Explore Modal 2 -->
 <div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
     <div class="portfolio-modal-dialog bg-white">
         <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
@@ -530,7 +542,7 @@
     </div>
 </div>
 
-<!-- Portfolio Modal 3 -->
+<!-- Explore Modal 3 -->
 <div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
     <div class="portfolio-modal-dialog bg-white">
         <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
