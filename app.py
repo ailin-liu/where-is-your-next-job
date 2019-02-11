@@ -41,7 +41,7 @@ def index():
         prob_of_survival = classification_model.predict_proba([input_sample])[0][1]
         percent_of_survival = round(prob_of_survival * 100, 2)
 
-        # Save vars for re-rendering:
+        # Save vars for re-rendering for prediction:
         app.vars['age'] = age
         if gender == 1:
             app.vars['gender'] = 'male'
