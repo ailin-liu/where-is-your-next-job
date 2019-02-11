@@ -104,7 +104,8 @@ venv.bak/
 .mypy_cache/
 
 # add'l
+.DS_Store
 .DS_Store/*
-/*/DS_Store/*
+/*/.DS_Store/*
 /.idea/*
 scratch.py
