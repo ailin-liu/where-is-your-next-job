@@ -3,7 +3,8 @@
 ### About the Project
 [Predicting Survival Outcomes](http://survival-prediction.herokuapp.com/index) is a 
 Flask app on Heroku that calculates the survival probability of hypothetical ICU patients 
-using EHR admissions data as sourced from the [MIMIC Database](https://mimic.mit.edu/about/mimic/). 
+using EHR admissions data sourced from the [MIMIC Database](https://mimic.mit.edu/about/mimic/).  
+
 Visit [Predicting Survival Outcomes](http://survival-prediction.herokuapp.com/index) to learn more and
 give the app a try!
 
