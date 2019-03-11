@@ -1,7 +1,8 @@
 import os
 from flask import Flask, redirect, render_template, request, jsonify
 from flask_bootstrap import Bootstrap
-import pickle
+#import pickle
+import dill
 import numpy as np
 
 app = Flask(__name__)
@@ -11,12 +12,13 @@ Bootstrap(app)
 dir_path = 'models/'
 
 # Load Pickled Models
-with open(dir_path + 'tfidf_vectorizer.pkl', 'rb') as tv:
-    tfidf_vectorizer = pickle.load(tv)
+#with open(dir_path + 'LR_pipe_1vsall.pkl', 'rb') as pipe:
+#    eng_classifier = pickle.load(pipe)
+eng_classifier = dill.load(open(dir_path + 'LR_pipe_1vsall.dill', 'rb'))
 
-with open(dir_path + 'logistic_regression.pkl', 'rb') as m:
-    classification_model = pickle.load(m)
-
+#with open(dir_path + 'opening_predict.pkl', 'rb') as pred:
+#    prediction_model = pickle.load(pred)
+prediction_model = dill.load(open(dir_path + 'eng_open_predict.dill', 'rb'))
 
 @app.route('/')
 def main():
@@ -28,38 +30,40 @@ def index():
     if request.method == 'GET':
         return render_template('index.html')
     else:
-        age = int(request.form['age'])
-        gender = int(request.form['gender'])
-        type = int(request.form['type'])
-        description = request.form['description']
+        major = request.form['major']
+        skill1 = request.form['skill1']
+        skill2 = request.form['skill2']
+        skill3 = request.form['skill3']
 
-        # Transform text data and combine
-        vectorized_description = tfidf_vectorizer.transform([description])
-        input_sample = np.append([age, gender, type], vectorized_description.todense())
+        eng_titles = {0:'Aerospace',1:'Biomedical', 2:'Chemical', 3: 'Civil', 4:'Computer-Hardware', 
+              5:'Electrical', 6:'Electronics', 7:'Environmental', 8:'Health-and-Safety',
+              9:'Industrial', 10:'Material', 11:'Mechanical'}
+        
+        # combine text data 
+        input_sample = [' '.join([major, skill1,skill2,skill3])]
 
         # Predict
-        prob_of_survival = classification_model.predict_proba([input_sample])[0][1]
-        percent_of_survival = round(prob_of_survival * 100, 2)
+        top_chance = sorted([(val,ind) for ind, val in enumerate(eng_classifier.predict_proba(input_sample)[0])],key = lambda x:x[0], reverse = True)
+        percent_of_title1 = round(top_chance[0][0] * 100, 2)
+        title1 = eng_titles[top_chance[0][1]]+' Engineer'
+        
+        percent_of_title2 = round(top_chance[1][0] * 100, 2)
+        title2 = eng_titles[top_chance[1][1]]+' Engineer'
+        
+        top3_title1 = prediction_model[title1]
+        top3_title2 = prediction_model[title2]
 
         # Save vars for re-rendering for prediction:
-        app.vars['age'] = age
-        if gender == 1:
-            app.vars['gender'] = 'male'
-        else:
-            app.vars['gender'] = 'female'
-        if type == 0:
-            app.vars['type'] = 'elective'
-        elif type == 1:
-            app.vars['type'] = 'emergency'
-        else:
-            app.vars['type'] = 'urgent'
-        app.vars['description'] = description.lower()
-        app.vars['desc'] = description.split()[0]
+        app.vars['major'] = major
+        app.vars['skill1'] = skill1.lower()
+        app.vars['skill2'] = skill2.lower()
+        app.vars['skill3'] = skill3.lower()
 
         return render_template('index.html', _anchor="predict",
-                               age=app.vars['age'], gender=app.vars['gender'],
-                               type=app.vars['type'], description=app.vars['description'], desc=app.vars['desc'],
-                               prediction_value=percent_of_survival)
+                               major=app.vars['major'], skill1=app.vars['skill1'],
+                               skill2=app.vars['skill2'], skill3=app.vars['skill3'], desc=app.vars['desc'],
+                               prediction_percent1 = percent_of_title1, title1 = title1, top3_title1 = top3_title1,
+                               prediction_percent2 = percent_of_title2, title1 = title2, top3_title2 = top3_title2)
 
 
 if __name__ == '__main__':

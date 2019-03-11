@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Predicting Survival Outcomes for ICU Patients</title>
+    <title>Location Recommendation for Job Searcher</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -53,7 +53,7 @@
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#explore">Explore</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#predict">Predict</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#predict">Try It Now</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#learn">Learn More</a>
@@ -67,9 +67,9 @@
 <header class="masthead bg-primary text-white text-center">
     <div class="container">
         <img class="img-fluid mb-5 d-block mx-auto" src="{{url_for('static', filename='img/heart_sq.png')}}" alt="">
-        <h1 class="text-uppercase mb-0">Predicting Survival Outcomes</h1>
+        <h1 class="text-uppercase mb-0">Where Is Your Next Job?</h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0">Calculate the survival probability of ICU patients using EHR data</h2>
+        <h2 class="font-weight-light mb-0">Skill Match - Job Opening Predict - Location Recommendation </h2>
     </div>
 </header>
 
@@ -85,10 +85,7 @@
             <div class="ml-auto">
                 <p class="lead">
 
-                    Patients that enter Intensive Care Units (ICUs) require specialized care and
-                    close monitoring to address often severe and life-threatening conditions. Different studies have
-                    found that between 55-75% of patients survive. This can lead one to consider if we can use machine
-                    learning to model patients' survival outcomes using available health data. <br>
+                    Whether you're a fresh graduate looking to find your first job, a professional looking to move your career, or a researcher interested in the job markets, this website is the perfect starting point!  <br>
                     <br>
 
                     MIMIC-III (Medical Information Mart for Intensive Care) is a clinical database comprised of
@@ -104,8 +101,7 @@
                 <p class="lead text-center">
 
                     Ask: <br>
-                    Can we predict the probability of a patient surviving after being admitted to the ICU
-                    using only their admissions information?
+                    Which job title fits your skill set most? How many job openings will be in a year with the job title, and where are the top three locations with most job openings?
 
                 </p>
             </div>
@@ -114,8 +110,7 @@
                 <p class="lead text-center">
 
                     Response: <br>
-                    A machine learning model was trained to predict the probability of survival
-                    for patients admitted to the ICU using attributes from admissions data.
+                    A machine learning model was trained to classify the skill set for 12 engineering job titles (Aerospace Engineer, Biomedical Engineer, Chemical Engineer, Civil Engineer, Computer Hardware Engineer, Electrical Engineer, Electronics Engineer, ,Environmental Engineer, Health and Safety Engineer, Industrial Engineer, Material Engineer, Mechanical Engineer). Then a predictive model was built to predict the job openings at each state in next year and give recommendations for top three.
                 </p>
             </div>
 
@@ -123,8 +118,7 @@
                 <p class="lead text-center">
 
                     Explore: <br>
-                    Continue onward to learn more about the data
-                    and how a subset of the original dataset was selected to train the model.
+                    How is the job market for different industry? and how the occupation title is distributed in different industries?
 
                 </p>
             </div>
@@ -147,7 +141,7 @@
                             <i class="fas fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="{{url_for('static', filename='img/days_in_icu.png')}}" alt="">
+                    <img class="img-fluid" src="{{url_for('static', filename='img/manuf_vs_all_openings.png')}}" alt="">
                 </a>
             </div>
             <div class="col-md-6 col-lg-4">
@@ -157,7 +151,7 @@
                             <i class="fas fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="{{url_for('static', filename='img/age_of_admit.png')}}" alt="">
+                    <img class="img-fluid" src="{{url_for('static', filename='img/aerospace_eng_occupation.png')}}" alt="">
                 </a>
             </div>
             <div class="col-md-6 col-lg-4">
@@ -167,7 +161,7 @@
                             <i class="fas fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="{{url_for('static', filename='img/type_of_admit.png')}}" alt="">
+                    <img class="img-fluid" src="{{url_for('static', filename='img/EducHealth_vs_all_openings.png')}}" alt="">
                 </a>
             </div>
 
@@ -176,34 +170,16 @@
                     <br>
                     <br>
 
-                    After exploratory data analysis, 4 attributes
-                    were selected to train the predictive model: age, gender, type of admission, and initial
-                    diagnosis.
-                    Age represents the continuous variable of a patient's age, while gender and type of admission
-                    are
-                    categorical variables. Based on the dataset, gender can be either female or male and the 3
-                    types of admissions are elective, emergency, and urgent. MIMIC provides that
-                    the main difference between elective and emergency/urgent is that elective
-                    indicates a planned medical visit.
+                    About 2,000 job descriptions for each engineer title were scraped from monster.com. Total record of 25,000 job descriptions was used for classification. 
                     <br>
                     <br>
-                    The initial diagnosis is the preliminary diagnosis of a patient at hospital admission
-                    usually assigned by the admitting clinician. This attribute is a line of free text&mdash;and this
-                    project expects that this text attribute holds a great deal of information that is not
-                    available in the numerical or categorical data.
-                    Examples of initial diagnoses include: <br>
-                    - 'Pneumonia'<br>
-                    - 'Post-op knee infection'<br>
+                    The job opening data are from Bureau of Labor Statistics. Three datasets are used:
                     <br>
-                    Of the original 46,000+ patients, the dataset was filtered for adults between the ages of 18 and 89
-                    and
-                    for patients who spent less than 31 days in the ICU.
-                    Patients who did not survive were determined by those who passed away within 1 day of being
-                    discharged (inclusive of passing away in the ICU). This resulted in approximately 25,000 unique
-                    patients, of whom about 5,000 did not survive. To have a balanced dataset,
-                    a random selection of
-                    5,000 patients was selected from the 20,000 who survived to train the model along with the
-                    5,000 who did not survive.
+                    - Occupation employment OE<br>
+                    - Current employeement monthly report at state/area level SM<br>
+                    - Business Dynamics quarterly report employeement openings at different industry nationwide BD<br>
+                    <br>
+                    
 
 
                 </p>
@@ -218,7 +194,7 @@
 <!-- Predict Section -->
 <section id="predict">
     <div class="container">
-        <h2 class="text-center text-uppercase text-secondary mb-0">Make A Prediction</h2>
+        <h2 class="text-center text-uppercase text-secondary mb-0">Try It Now</h2>
         <hr class="star-dark mb-5">
         <div class="row">
 
@@ -226,17 +202,13 @@
                 <p class="lead text-center">
                     About the Model: <br>
                     <br>
-                    A logistic regression model was trained on approximately 10,000 adult patients using attributes
-                    of age, gender, admission type, and initial diagnosis. <br>
+                    A 1-vs-All logistic regression model was trained on approximately 25000 job descriptions from Monster.com. <br>
 
-                    The initial diagnosis
+                    The job description text
                     was vectorized to retrieve term significance
                     with term frequency-inverse document frequency (TF-IDF).<br>
                     <br>
-                    The train and test accuracies were between 75-78% (with a classification threshold of
-                    0.5)&mdash;thus,
-                    overfitting does not appear to be a notable concern. The AUROC when trained on the entire
-                    dataset was about 0.78.
+                    The train and test accuracies were between 79-82%.
 
                 </p>
             </div>
@@ -245,136 +217,127 @@
             <div class="col-lg-4 mr-auto">
                 <p class="lead text-center">
 
-                    Select values for the
-                    following 4 attributes:
+                    Select values for your
+                    major and skill sets:
 
                 </p>
                 <form id="input" method="post" action="index#predict">
                     <p>
-                        1. Age:
-                        <select name="age">
-                            <option value=18 {% if age== 18 %} selected="selected" {% endif %}>18</option>
-                            <option value=19 {% if age== 19 %} selected="selected" {% endif %}>19</option>
-                            <option value=20 {% if age== 20 %} selected="selected" {% endif %}>20</option>
-                            <option value=21 {% if age== 21 %} selected="selected" {% endif %}>21</option>
-                            <option value=22 {% if age== 22 %} selected="selected" {% endif %}>22</option>
-                            <option value=23 {% if age== 23 %} selected="selected" {% endif %}>23</option>
-                            <option value=24 {% if age== 24 %} selected="selected" {% endif %}>24</option>
-                            <option value=25 {% if age== 25 %} selected="selected" {% endif %}>25</option>
-                            <option value=26 {% if age== 26 %} selected="selected" {% endif %}>26</option>
-                            <option value=27 {% if age== 27 %} selected="selected" {% endif %}>27</option>
-                            <option value=28 {% if age== 28 %} selected="selected" {% endif %}>28</option>
-                            <option value=29 {% if age== 29 %} selected="selected" {% endif %}>29</option>
-                            <option value=30 {% if age== 30 %} selected="selected" {% endif %}>30</option>
-                            <option value=31 {% if age== 31 %} selected="selected" {% endif %}>31</option>
-                            <option value=32 {% if age== 32 %} selected="selected" {% endif %}>32</option>
-                            <option value=33 {% if age== 33 %} selected="selected" {% endif %}>33</option>
-                            <option value=34 {% if age== 34 %} selected="selected" {% endif %}>34</option>
-                            <option value=35 {% if age== 35 %} selected="selected" {% endif %}>35</option>
-                            <option value=36 {% if age== 36 %} selected="selected" {% endif %}>36</option>
-                            <option value=37 {% if age== 37 %} selected="selected" {% endif %}>37</option>
-                            <option value=38 {% if age== 38 %} selected="selected" {% endif %}>38</option>
-                            <option value=39 {% if age== 39 %} selected="selected" {% endif %}>39</option>
-                            <option value=40 {% if age== 40 %} selected="selected" {% endif %}>40</option>
-                            <option value=41 {% if age== 41 %} selected="selected" {% endif %}>41</option>
-                            <option value=42 {% if age== 42 %} selected="selected" {% endif %}>42</option>
-                            <option value=43 {% if age== 43 %} selected="selected" {% endif %}>43</option>
-                            <option value=44 {% if age== 44 %} selected="selected" {% endif %}>44</option>
-                            <option value=45 {% if age== 45 %} selected="selected" {% endif %}>45</option>
-                            <option value=46 {% if age== 46 %} selected="selected" {% endif %}>46</option>
-                            <option value=47 {% if age== 47 %} selected="selected" {% endif %}>47</option>
-                            <option value=48 {% if age== 48 %} selected="selected" {% endif %}>48</option>
-                            <option value=49 {% if age== 49 %} selected="selected" {% endif %}>49</option>
-                            <option value=50 {% if age== 50 %} selected="selected" {% endif %}>50</option>
-                            <option value=51 {% if age== 51 %} selected="selected" {% endif %}>51</option>
-                            <option value=52 {% if age== 52 %} selected="selected" {% endif %}>52</option>
-                            <option value=53 {% if age== 53 %} selected="selected" {% endif %}>53</option>
-                            <option value=54 {% if age== 54 %} selected="selected" {% endif %}>54</option>
-                            <option value=55 {% if age== 55 %} selected="selected" {% endif %}>55</option>
-                            <option value=56 {% if age== 56 %} selected="selected" {% endif %}>56</option>
-                            <option value=57 {% if age== 57 %} selected="selected" {% endif %}>57</option>
-                            <option value=58 {% if age== 58 %} selected="selected" {% endif %}>58</option>
-                            <option value=59 {% if age== 59 %} selected="selected" {% endif %}>59</option>
-                            <option value=60 {% if age== 60 %} selected="selected" {% endif %}>60</option>
-                            <option value=61 {% if age== 61 %} selected="selected" {% endif %}>61</option>
-                            <option value=62 {% if age== 62 %} selected="selected" {% endif %}>62</option>
-                            <option value=63 {% if age== 63 %} selected="selected" {% endif %}>63</option>
-                            <option value=64 {% if age== 64 %} selected="selected" {% endif %}>64</option>
-                            <option value=65 {% if age== 65 %} selected="selected" {% endif %}>65</option>
-                            <option value=66 {% if age== 66 %} selected="selected" {% endif %}>66</option>
-                            <option value=67 {% if age== 67 %} selected="selected" {% endif %}>67</option>
-                            <option value=68 {% if age== 68 %} selected="selected" {% endif %}>68</option>
-                            <option value=69 {% if age== 69 %} selected="selected" {% endif %}>69</option>
-                            <option value=70 {% if age== 70 %} selected="selected" {% endif %}>70</option>
-                            <option value=71 {% if age== 71 %} selected="selected" {% endif %}>71</option>
-                            <option value=72 {% if age== 72 %} selected="selected" {% endif %}>72</option>
-                            <option value=73 {% if age== 73 %} selected="selected" {% endif %}>73</option>
-                            <option value=74 {% if age== 74 %} selected="selected" {% endif %}>74</option>
-                            <option value=75 {% if age== 75 %} selected="selected" {% endif %}>75</option>
-                            <option value=76 {% if age== 76 %} selected="selected" {% endif %}>76</option>
-                            <option value=77 {% if age== 77 %} selected="selected" {% endif %}>77</option>
-                            <option value=78 {% if age== 78 %} selected="selected" {% endif %}>78</option>
-                            <option value=79 {% if age== 79 %} selected="selected" {% endif %}>79</option>
-                            <option value=80 {% if age== 80 %} selected="selected" {% endif %}>80</option>
-                            <option value=81 {% if age== 81 %} selected="selected" {% endif %}>81</option>
-                            <option value=82 {% if age== 82 %} selected="selected" {% endif %}>82</option>
-                            <option value=83 {% if age== 83 %} selected="selected" {% endif %}>83</option>
-                            <option value=84 {% if age== 84 %} selected="selected" {% endif %}>84</option>
-                            <option value=85 {% if age== 85 %} selected="selected" {% endif %}>85</option>
-                            <option value=86 {% if age== 86 %} selected="selected" {% endif %}>86</option>
-                            <option value=87 {% if age== 87 %} selected="selected" {% endif %}>87</option>
-                            <option value=88 {% if age== 88 %} selected="selected" {% endif %}>88</option>
-                            <option value=89 {% if age== 89 %} selected="selected" {% endif %}>89</option>
+                        1. Major:
+                        <select name="major">
+                            <option value="Aerospace Engineering" {% if major== "Aerospace" %} selected="selected" 
+                                    {% endif %}>Aerospace Engineering</option>
+                            <option value="Biomedical Engineering" {% if major== "Biomedical" %} selected="selected" 
+                                    {% endif %}>Biomedical Engineering</option>
+                            <option value="Chemical Engineering" {% if major== "Chemical" %} selected="selected" 
+                                    {% endif %}>Chemical Engineering</option>
+                            <option value="Civil Engineering" {% if major== "Civil" %} selected="selected" 
+                                    {% endif %}>Civil Engineering</option>
+                            <option value="Computer Science" {% if major== "Computer Science" %} selected="selected" 
+                                    {% endif %}>Computer Science</option>
+                            <option value="Electrical Engineering" {% if major== "Electrical" %} selected="selected" 
+                                    {% endif %}>Electrical Engineering</option>
+                            <option value= "Environmental Engineering" {% if major== "Environmental" %} selected="selected" 
+                                    {% endif %}>Environmental Engineering</option>
+                            <option value="Industrial Engineering" {% if major== "Industrial" %} selected="selected" 
+                                    {% endif %}>Indutrial Engineering</option>
+                            <option value="Material Science" {% if major== "Material" %} selected="selected" 
+                                    {% endif %}>Material Science</option>
+                            <option value="Mechanical Engineering" {% if major== "Mechanical" %} selected="selected" 
+                                    {% endif %}>Mechanical Engineering</option>
+                            <option value="Engineering Science" {% if major== "Engineering" %} selected="selected" 
+                                    {% endif %}>Engineering Science</option>
                         </select> <br> <br>
 
-                        2. Gender:
-                        <select name="gender">
-                            <option value=0 {% if gender=="female" %} selected="selected" {% endif %}>Female</option>
-                            <option value=1 {% if gender=="male" %} selected="selected" {% endif %}>Male</option>
+                        2. Skill 1:
+                        <select name="skill1">
+                            <option value="Flight Test" {% if skill1== "Flight Test" %} selected="selected" 
+                                    {% endif %}>Flight Test</option>
+                            <option value="Medical Device" {% if skill1== "Medical Device" %} selected="selected" 
+                                    {% endif %}>Medical Device</option>
+                            <option value="Polymer and Composites" {% if skill1== "Polymer and Composites" %} selected="selected" 
+                                    {% endif %}>Polymer and Composites</option>
+                            <option value="Structural Evaluation" {% if skill1== "Structural Evaluation" %} selected="selected" 
+                                    {% endif %}>Structural Evaluation</option>
+                            <option value="Radio Frequency" {% if skill1== "Radio Frequency" %} selected="selected" 
+                                    {% endif %}>Radio Frequency</option>
+                            <option value="Electrical System and Design" {% if skill1== "Electrical System and Design" %}
+                                    elected="selected" {% endif %}>Electrical System and Design</option>
+                            <option value="Electo-Mechanical" {% if skill1== "Electo-Mechanical" %} selected="selected" 
+                                    {% endif %}>Electo-Mechanical</option>
+                            <option value="Health Safety and Environment" {% if skill1== "Health Safety and Environment" %}
+                                    selected="selected" {% endif %}>Health Safety and Environment</option>
+                            <option value="Chemical Hazard" {% if skill1== "Chemical Hazard" %} selected="selected" 
+                                    {% endif %}>Chemical Hazard</option>
+                            <option value="Industrial Control" {% if skill1== "Industrial Control" %} selected="selected" 
+                                    {% endif %}>Industrial Control</option>
+                            <option value="Material Handling" {% if skill1== "Material Handling" %} selected="selected" 
+                                    {% endif %}>Material Handling</option>
+                            <option value="Mechanical Design" {% if skill1== "Mechanical Design" %} selected="selected" 
+                                    {% endif %}>Mechanical Design</option>
+                            
                         </select> <br> <br>
 
-                        3. Type of ICU Admission:
-                        <select name="type">
-                            <option value=0 {% if type=="elective" %} selected="selected" {% endif %}>Elective</option>
-                            <option value=1 {% if type=="emergency" %} selected="selected" {% endif %}>Emergency
-                            </option>
-                            <option value=2 {% if type=="urgent" %} selected="selected" {% endif %}>Urgent</option>
+                        3. Skill 2:
+                        <select name="skill2">
+                            <option value="Avionics" {% if skill2== "Avionics" %} selected="selected" 
+                                    {% endif %}>Avionics</option>
+                            <option value="Human Factor" {% if skill2== "Human Factor" %} selected="selected" 
+                                    {% endif %}>Human Factor</option>
+                            <option value="Chemical Process and Safety" {% if skill2== "Chemical Process and Safety" %} 
+                                    selected="selected" {% endif %}>Chemical Process and Safety</option>
+                            <option value="PE License" {% if skill2== "PE License" %} selected="selected" 
+                                    {% endif %}>PE License</option>
+                            <option value="Printed Circuit Board(PCB)" {% if skill2== "Printed Circuit Board(PCB)" %} selected="selected" 
+                                    {% endif %}>Printed Circuit Board(PCB)</option>
+                            <option value="Digital Control" {% if skill2== "Digital Control" %} selected="selected" 
+                                    {% endif %}>Digital Control</option>
+                            <option value="Radar" {% if skill2== "Radar" %} selected="selected" 
+                                    {% endif %}>Radar</option>
+                            <option value="Water Resource" {% if skill2== "Water Resource" %} selected="selected" 
+                                    {% endif %}>Water Resource</option>
+                            <option value="Functional Safety" {% if skill2== "Functional Safety" %} selected="selected" 
+                                    {% endif %}>Functional Safety</option>
+                            <option value="Lean Manufacturing Method" {% if skill2== "Lean Manufacturing Method" %} selected="selected" 
+                                    {% endif %}>Lean Manufacturing Method</option>
+                            <option value="Material Inspection" {% if skill2== "Material Inspection" %} selected="selected" 
+                                    {% endif %}>Material Inspection</option>
+                            <option value="SolidWorks" {% if skill2== "SolidWorks" %} selected="selected" 
+                                    {% endif %}>SolidWorks</option>
+                            
                         </select> <br> <br>
 
-                        4. Initial Diagnosis:
-                        <select name="description">
-                            <option value="BENZODIAZEPINE OVERDOSE" {% if desc=="BENZODIAZEPINE" %} selected="selected"
-                                    {% endif %}>Benzodiazepine Overdose
-                            </option>
-                            <option value="CHEST PAIN" {% if desc=="CHEST" %} selected="selected" {% endif %}>Chest
-                                Pain
-                            </option>
-                            <option value="CONGESTIVE HEART FAILURE" {% if desc=="CONGESTIVE" %} selected="selected" {%
-                                    endif %}>Congestive Heart Failure
-                            </option>
-                            <option value="KIDNEY FAILURE" {% if desc=="KIDNEY" %} selected="selected" {% endif %}>
-                                Kidney Failure
-                            </option>
-                            <option value="INTRACRANIAL HEMORRHAGE" {% if desc=="INTRACRANIAL" %} selected="selected" {%
-                                    endif %}>Intracranial Hemorrhage
-                            </option>
-                            <option value="LIVER FAILURE" {% if desc=="LIVER" %} selected="selected" {% endif %}>Liver
-                                Failure
-                            </option>
-                            <option value="PELVIC FRACTURE" {% if desc=="PELVIC" %} selected="selected" {% endif %}>
-                                Pelvic Fracture
-                            </option>
-                            <option value="PNEUMONIA" {% if desc=="PNEUMONIA" %} selected="selected" {% endif %}>
-                                Pneumonia
-                            </option>
-                            <option value="SEIZURE" {% if desc=="SEIZURE" %} selected="selected" {% endif %}>Seizure
-                            </option>
-                            <option value="SEPSIS" {% if desc=="SEPSIS" %} selected="selected" {% endif %}>Sepsis
-                            </option>
+                        4. Skill 3:
+                        <select name="skill3">
+                            <option value="Aircraft" {% if skill3== "Aircraft" %} selected="selected" 
+                                    {% endif %}>Aircraft</option>
+                            <option value="Image Processing" {% if skill3== "Image Processing" %} selected="selected" 
+                                    {% endif %}>Image Processing</option>
+                            <option value="Scaling-up/Scaling-down" {% if skill3== "Scaling-up/Scaling-down" %} selected="selected" 
+                                    {% endif %}>Scaling-up/Scaling-down</option>
+                            <option value="AutoCAD" {% if skill3== "AutoCAD" %} selected="selected" 
+                                    {% endif %}>AutoCAD</option>
+                            <option value="Field Programmable Gate Array(FPGA)" {% if skill3== "Field Programmable Gate Array(FPGA)" %}
+                                    selected="selected" {% endif %}>Field Programmable Gate Array(FPGA)</option>
+                            <option value="Circuit Test" {% if skill3== "Circuit Test" %} selected="selected" 
+                                    {% endif %}>Circuit Test</option>
+                            <option value="Digital Design" {% if skill3== "Digital Design" %} selected="selected" 
+                                    {% endif %}>Digital Design</option>
+                            <option value="Remediation" {% if skill3== "Remediation" %} selected="selected" 
+                                    {% endif %}>Remediation</option>
+                            <option value="Industrial Hygiene" {% if skill3== "Industrial Hygiene" %} selected="selected" 
+                                    {% endif %}>Industrial Hygiene</option>
+                            <option value="Risk Analysis" {% if skill3== "Risk Analysis" %} selected="selected" 
+                                    {% endif %}>Risk Analysis</option>
+                            <option value="Plastics" {% if skill3== "Plastics" %} selected="selected" 
+                                    {% endif %}>Plastics</option>
+                            <option value="HVAC" {% if skill3== "HVAC" %} selected="selected" 
+                                    {% endif %}>HVAC</option>
+                            
                         </select> <br> <br>
                     </p>
                     <p>
-                        <input type="submit" value="Make a prediction!"/>
+                        <input type="submit" value="Try It Now!"/>
                     </p>
                 </form>
             </div>
@@ -385,25 +348,39 @@
 
                     Prediction Results: <br>
                     <br>
-                    {% if prediction_value %}
-                    A {{ gender }} patient who is {{ age }} years old with
-                    an {{ type }} admission to the ICU and diagnosed with {{ description }}
+                    {% if prediction_percent2 > 10 %}
+                    A  professional who has a degree on {{ major }} and
+                    skill sets of {{ skill1 }} {{ skill2 }}, {{ skill3 }}
                     is expected to have <br>
-                    {{ prediction_value }}% chance of survival.
+                    {{ prediction_percent2 }}% chance of job title {{title2}}..
                     <br>
 
                     <br>
-                    What does this result mean? <br>
-                    This is the prediction of a model trained on a specific set of attributes and patients, but
-                    there are numerous other factors such as
-                    medical history and treatment that can affect
-                    survival rate. <br>
-                    Please do not consider this as
-                    medical advice.
+                    Top 3 states for {{title1}}: <br>
+                    {{top3_title1[0][0]}}  -- {{top3_title1[0][1]}} openings
+                    {{top3_title1[1][0]}}  -- {{top3_title1[1][1]}} openings
+                    {{top3_title1[2][0]}}  -- {{top3_title1[2][1]}} openings
+                    
+                    <br>
+                    Top 3 states for {{title2}}: <br>
+                    {{top3_title2[0][0]}}  -- {{top3_title2[0][1]}} openings
+                    {{top3_title2[1][0]}}  -- {{top3_title2[1][1]}} openings
+                    {{top3_title2[2][0]}}  -- {{top3_title2[2][1]}} openings
 
+                    {% elif prediction_percent2 <=10 %}
+                    A  professional who has a degree on {{ major }} and
+                    skill sets of {{ skill1 }} {{ skill2 }}, {{ skill3 }}
+                    is expected to have <br                    
+                    {{ prediction_percent1 }}% chance of job title {{title1}}
+                    <br>
+                    Top 3 states for {{title1}}: <br>
+                    {{top3_title1[0][0]}}  -- {{top3_title1[0][1]}} openings
+                    {{top3_title1[1][0]}}  -- {{top3_title1[1][1]}} openings
+                    {{top3_title1[2][0]}}  -- {{top3_title1[2][1]}} openings
+                    
                     {% else %}
                     Select values to make a prediction.
-
+                    
                     {% endif %}
 
                 </p>
@@ -423,29 +400,23 @@
 
         <div class="row">
             <div class="col-md-4 mb-5 mb-lg-0">
-                <h4 class="text-uppercase mb-4">MIMIC</h4>
+                <h4 class="text-uppercase mb-4">U.S. Bureau of Labor Statistics</h4>
                 <p class="lead mb-0"> Access to
-                    <a href="https://mimic.mit.edu/about/mimic/">MIMIC</a> is available through request.</p>
+                    <a href="https://download.bls.gov/pub/time.series/">U.S. Bureau of Labor Statistics </a> for full employment dataset.</p>
             </div>
             <div class="col-md-4 mb-5 mb-lg-0">
-                <h4 class="mb-4">Find Vasudha Gupta</h4>
+                <h4 class="mb-4">Find Ailin Liu</h4>
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
                         <a class="btn btn-outline-light btn-social text-center rounded-circle"
-                           href="https://www.linkedin.com/in/vasudhagupta">
+                           href="www.linkedin.com/in/ailin-liu-64081620">
                             <i class="fab fa-fw fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn btn-outline-light btn-social text-center rounded-circle"
-                           href="https://twitter.com/vasudhathinks">
-                            <i class="fab fa-fw fa-twitter"></i>
                         </a>
                     </li>
 
                     <li class="list-inline-item">
                         <a class="btn btn-outline-light btn-social text-center rounded-circle"
-                           href="https://github.com/vasudhathinks/">
+                           href=" ">
                             <i class="fab fa-fw fa-github"></i>
                         </a>
                     </li>
@@ -454,7 +425,7 @@
             <div class="col-md-4">
                 <h4 class="text-uppercase mb-4 ">Code</h4>
                 <p class="lead mb-0">Source code for this app is available through its
-                    <a href="https://github.com/vasudhathinks/survival_prediction_mimic">github
+                    <a href=" ">github
                         repo</a>.</p>
             </div>
         </div>
@@ -467,7 +438,7 @@
 <!-- Footer -->
 <div class="copyright py-4 text-center text-white">
     <div class="container">
-        <small>Copyright &copy; Vasudha Gupta + Start Bootstrap 2019</small>
+        <small>Copyright &copy; Ailin Liu + Start Bootstrap 2019</small>
     </div>
 </div>
 
@@ -490,20 +461,14 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="text-secondary text-uppercase mb-0">Length of ICU Stay</h2>
+                    <h2 class="text-secondary text-uppercase mb-0">Manufacturing Industry Job Openings</h2>
                     <hr class="star-dark mb-5">
-                    <img class="img-fluid mb-5" src="{{url_for('static', filename='img/days_in_icu.png')}}" alt="">
+                    <img class="img-fluid mb-5" src="{{url_for('static', filename='img/manuf_vs_all_openings.png')}}" alt="">
                     <p class="mb-5">
-                        Most patients spend a short period of time in the ICU, with a significant amount spending up to
-                        10 days. This graph shows that the number of patients who have survived substantially decreases
-                        as the
-                        number of days spent in the ICU increases. There is a slower [declining] progression for
-                        patients who do not survive, nevertheless the number of such patients also decreases with time.
-                        <br>
-                        <br>
-                        This project expects that patients that remain in the ICU for a long period of
-                        time have more critical needs than the average ICU patient. Thus, a cutoff of 30 days was
-                        selected and only patients that spent up to 30 days in the ICU were considered for this project.
+                        Manufacturing industry (black line) shows a steady decline trend of job openings after 2000, it did not follow
+                        the overall economics(dashed pink line) recoveries after 2008 recession.  
+                        <br>All numbers are in thousands of employeements.
+
                     </p>
                     <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
                         <i class="fa fa-close"></i>
@@ -523,15 +488,14 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="text-secondary text-uppercase mb-0">Age of Patients</h2>
+                    <h2 class="text-secondary text-uppercase mb-0">Industry Distribution of Aerospace Engineer Occupation</h2>
                     <hr class="star-dark mb-5">
-                    <img class="img-fluid mb-5" src="{{url_for('static', filename='img/age_of_admit.png')}}" alt="">
+                    <img class="img-fluid mb-5" src="{{url_for('static', filename='img/aerospace_eng_occupation.png')}}" alt="">
                     <p class="mb-5">
-                        A majority of patients entering the ICU are between the ages of 40 and
-                        90. There is a a general trend showing that as age increases, more older patients are
-                        admitted to the ICU. Moreover, of these older patients who are admitted, a smaller portion
-                        survive (the size of the orange bars increase with age denoting a larger portion who do not
-                        survive).
+                        47% of the Aerospace Engineers comes from Transportation Equipment Manufacturing, 
+                        30% comes from Professional,Scientific, and Technical Services, 
+                        15% comes from Computer and Electronic Product Manufacturing,
+                        the rests only take less than 10% in total.
                     </p>
                     <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
                         <i class="fa fa-close"></i>
@@ -551,12 +515,13 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="text-secondary text-uppercase mb-0">Type of ICU Admission</h2>
+                    <h2 class="text-secondary text-uppercase mb-0">Education and Health Service Job Openings</h2>
                     <hr class="star-dark mb-5">
-                    <img class="img-fluid mb-5" src="{{url_for('static', filename='img/type_of_admit.png')}}" alt="">
+                    <img class="img-fluid mb-5" src="{{url_for('static', filename='img/EducHealth_vs_all_openings.png')}}" alt="">
                     <p class="mb-5">
-                        We see that a vast majority of admissions to the ICU are emergency. Moreover, it appears to be
-                        highly likely for an elective admission to result in survival.
+                        Education and Health Service Industry showed an continuous growth over the year, not even affected by 
+                        the 2008 recession.
+                        <br>All numbers are in thousands of employeements.
                     </p>
                     <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
                         <i class="fa fa-close"></i>
