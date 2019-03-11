@@ -63,7 +63,7 @@ def index():
                                major=app.vars['major'], skill1=app.vars['skill1'],
                                skill2=app.vars['skill2'], skill3=app.vars['skill3'], desc=app.vars['desc'],
                                prediction_percent1 = percent_of_title1, title1 = title1, top3_title1 = top3_title1,
-                               prediction_percent2 = percent_of_title2, title1 = title2, top3_title2 = top3_title2)
+                               prediction_percent2 = percent_of_title2, title2 = title2, top3_title2 = top3_title2)
 
 
 if __name__ == '__main__':
