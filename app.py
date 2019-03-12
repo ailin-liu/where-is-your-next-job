@@ -61,18 +61,27 @@ def index():
         app.vars['skill2'] = skill2.lower()
         app.vars['skill3'] = skill3.lower()
         if percent_of_title2 > 10:
-            return render_template('index.html', _anchor="predict",
-                               major=app.vars['major'], skill1=app.vars['skill1'],
-                               skill2=app.vars['skill2'], skill3=app.vars['skill3'], 
+#            return render_template('index.html', _anchor="predict",
+#                               major=app.vars['major'], skill1=app.vars['skill1'],
+#                               skill2=app.vars['skill2'], skill3=app.vars['skill3'], 
+#                               prediction_percent1 = percent_of_title1, title1 = title1, top3_title1 = top3_title1,
+#                               prediction_percent2 = percent_of_title2, title2 = title2, top3_title2 = top3_title2)
+             return render_template('index.html', _anchor="predict",
+                               major = major, skill1 = skill1,
+                               skill2 = skill2, skill3 = skill3, 
                                prediction_percent1 = percent_of_title1, title1 = title1, top3_title1 = top3_title1,
-                               prediction_percent2 = percent_of_title2, title2 = title2, top3_title2 = top3_title2)
+                               prediction_percent2 = percent_of_title2, title2 = title2, top3_title2 = top3_title2)   
         else:
-            return render_template('index.html', _anchor="predict",
-                               major=app.vars['major'], skill1=app.vars['skill1'],
-                               skill2=app.vars['skill2'], skill3=app.vars['skill3'], 
+#            return render_template('index.html', _anchor="predict",
+#                               major=app.vars['major'], skill1=app.vars['skill1'],
+#                               skill2=app.vars['skill2'], skill3=app.vars['skill3'], 
+#                               prediction_percent1 = percent_of_title1, title1 = title1, top3_title1 = top3_title1,
+#                               prediction_percent2 = None, title2 = None, top3_title2 = None)
+             return render_template('index.html', _anchor="predict",
+                               major = major, skill1 = skill1,
+                               skill2 = skill2, skill3 = skill3, 
                                prediction_percent1 = percent_of_title1, title1 = title1, top3_title1 = top3_title1,
-                               prediction_percent2 = None, title2 = None, top3_title2 = None)
- 
+                               prediction_percent2 = None, title2 = None, top3_title2 = None)   
 
 if __name__ == '__main__':
     # app.run(debug=True)
