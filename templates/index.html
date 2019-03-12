@@ -66,7 +66,7 @@
 <!-- Header -->
 <header class="masthead bg-primary text-white text-center">
     <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="{{url_for('static', filename='img/Look-750x300.png')}}" alt="">
+        <img class="img-fluid mb-5 d-block mx-auto" src="{{url_for('static', filename='img/Look-750x300.jpg')}}" alt="">
         <h1 class="text-uppercase mb-0">Where Is Your Next Job?</h1>
         <hr class="star-light">
         <h2 class="font-weight-light mb-0">Skill Match - Job Opening Predict - Location Recommendation </h2>
@@ -88,12 +88,6 @@
                     Whether you're a fresh graduate looking to find your first job, a professional looking to move your career, or a researcher interested in the job markets, this website is the perfect starting point!  <br>
                     <br>
 
-                    MIMIC-III (Medical Information Mart for Intensive Care) is a clinical database comprised of
-                    deidentified health-related data from 2001 and 2012 associated with over 46,000 ICU patients.
-                    <br>
-                    <br>
-
-
                 </p>
             </div>
 
@@ -110,7 +104,11 @@
                 <p class="lead text-center">
 
                     Response: <br>
-                    A machine learning model was trained to classify the skill set for 12 engineering job titles (Aerospace Engineer, Biomedical Engineer, Chemical Engineer, Civil Engineer, Computer Hardware Engineer, Electrical Engineer, Electronics Engineer, ,Environmental Engineer, Health and Safety Engineer, Industrial Engineer, Material Engineer, Mechanical Engineer). Then a predictive model was built to predict the job openings at each state in next year and give recommendations for top three.
+                    A machine learning model was trained to classify the skill set for 12 engineering job titles (Aerospace Engineer, 
+                    Biomedical Engineer, Chemical Engineer, Civil Engineer, Computer Hardware Engineer, Electrical Engineer, 
+                    Electronics Engineer, ,Environmental Engineer, Health and Safety Engineer, Industrial Engineer, Material Engineer, 
+                    Mechanical Engineer). Then a predictive model was built to predict the job openings at each state in next year
+                    and give recommendations for top three.
                 </p>
             </div>
 
@@ -118,7 +116,10 @@
                 <p class="lead text-center">
 
                     Explore: <br>
-                    How is the job market for different industry? and how the occupation title is distributed in different industries?
+                    How is the job market for different industries? 
+                    Is there an increase or decrease trend of job openings in past five year? 
+                    How the occupation title is distributed in different industries?
+                    
 
                 </p>
             </div>
@@ -170,7 +171,8 @@
                     <br>
                     <br>
 
-                    About 2,000 job descriptions for each engineer title were scraped from monster.com. Total record of 25,000 job descriptions was used for classification. 
+                    About 2,000 job descriptions for each engineer title were scraped from monster.com. 
+                    Total record of 25,000+ job descriptions was used for classification. 
                     <br>
                     <br>
                     The job opening data are from Bureau of Labor Statistics. Three datasets are used:
@@ -202,7 +204,8 @@
                 <p class="lead text-center">
                     About the Model: <br>
                     <br>
-                    A 1-vs-All logistic regression model was trained on approximately 25000 job descriptions from Monster.com. <br>
+                    A 1-vs-All logistic regression model was trained on approximately 25000 engineering 
+                    job descriptions from Monster.com. <br>
 
                     The job description text
                     was vectorized to retrieve term significance
@@ -251,8 +254,22 @@
 
                         2. Skill 1:
                         <select name="skill1">
+                            <option value="Chemical Hazard" {% if skill1== "Chemical Hazard" %} selected="selected" 
+                                    {% endif %}>Chemical Hazard</option>                            
+                            <option value="Electrical System and Design" {% if skill1== "Electrical System and Design" %}
+                                    elected="selected" {% endif %}>Electrical System and Design</option>
+                            <option value="Electro-Mechanical" {% if skill1== "Electro-Mechanical" %} selected="selected" 
+                                    {% endif %}>Electro-Mechanical</option>
                             <option value="Flight Test" {% if skill1== "Flight Test" %} selected="selected" 
-                                    {% endif %}>Flight Test</option>
+                                    {% endif %}>Flight Test</option>                        
+                            <option value="Health Safety and Environment" {% if skill1== "Health Safety and Environment" %}
+                                    selected="selected" {% endif %}>Health Safety and Environment</option>                            
+                            <option value="Industrial Control" {% if skill1== "Industrial Control" %} selected="selected" 
+                                    {% endif %}>Industrial Control</option>
+                            <option value="Material Handling" {% if skill1== "Material Handling" %} selected="selected" 
+                                    {% endif %}>Material Handling</option>
+                            <option value="Mechanical Design" {% if skill1== "Mechanical Design" %} selected="selected" 
+                                    {% endif %}>Mechanical Design</option>
                             <option value="Medical Device" {% if skill1== "Medical Device" %} selected="selected" 
                                     {% endif %}>Medical Device</option>
                             <option value="Polymer and Composites" {% if skill1== "Polymer and Composites" %} selected="selected" 
@@ -261,20 +278,7 @@
                                     {% endif %}>Structural Evaluation</option>
                             <option value="Radio Frequency" {% if skill1== "Radio Frequency" %} selected="selected" 
                                     {% endif %}>Radio Frequency</option>
-                            <option value="Electrical System and Design" {% if skill1== "Electrical System and Design" %}
-                                    elected="selected" {% endif %}>Electrical System and Design</option>
-                            <option value="Electo-Mechanical" {% if skill1== "Electo-Mechanical" %} selected="selected" 
-                                    {% endif %}>Electo-Mechanical</option>
-                            <option value="Health Safety and Environment" {% if skill1== "Health Safety and Environment" %}
-                                    selected="selected" {% endif %}>Health Safety and Environment</option>
-                            <option value="Chemical Hazard" {% if skill1== "Chemical Hazard" %} selected="selected" 
-                                    {% endif %}>Chemical Hazard</option>
-                            <option value="Industrial Control" {% if skill1== "Industrial Control" %} selected="selected" 
-                                    {% endif %}>Industrial Control</option>
-                            <option value="Material Handling" {% if skill1== "Material Handling" %} selected="selected" 
-                                    {% endif %}>Material Handling</option>
-                            <option value="Mechanical Design" {% if skill1== "Mechanical Design" %} selected="selected" 
-                                    {% endif %}>Mechanical Design</option>
+                          
                             
                         </select> <br> <br>
 
@@ -282,58 +286,57 @@
                         <select name="skill2">
                             <option value="Avionics" {% if skill2== "Avionics" %} selected="selected" 
                                     {% endif %}>Avionics</option>
-                            <option value="Human Factor" {% if skill2== "Human Factor" %} selected="selected" 
-                                    {% endif %}>Human Factor</option>
                             <option value="Chemical Process and Safety" {% if skill2== "Chemical Process and Safety" %} 
                                     selected="selected" {% endif %}>Chemical Process and Safety</option>
-                            <option value="PE License" {% if skill2== "PE License" %} selected="selected" 
-                                    {% endif %}>PE License</option>
-                            <option value="Printed Circuit Board(PCB)" {% if skill2== "Printed Circuit Board(PCB)" %} selected="selected" 
-                                    {% endif %}>Printed Circuit Board(PCB)</option>
                             <option value="Digital Control" {% if skill2== "Digital Control" %} selected="selected" 
                                     {% endif %}>Digital Control</option>
-                            <option value="Radar" {% if skill2== "Radar" %} selected="selected" 
-                                    {% endif %}>Radar</option>
-                            <option value="Water Resource" {% if skill2== "Water Resource" %} selected="selected" 
-                                    {% endif %}>Water Resource</option>
                             <option value="Functional Safety" {% if skill2== "Functional Safety" %} selected="selected" 
                                     {% endif %}>Functional Safety</option>
+                            <option value="Human Factor" {% if skill2== "Human Factor" %} selected="selected" 
+                                    {% endif %}>Human Factor</option>   
                             <option value="Lean Manufacturing Method" {% if skill2== "Lean Manufacturing Method" %} selected="selected" 
                                     {% endif %}>Lean Manufacturing Method</option>
                             <option value="Material Inspection" {% if skill2== "Material Inspection" %} selected="selected" 
                                     {% endif %}>Material Inspection</option>
+                            <option value="PE License" {% if skill2== "PE License" %} selected="selected" 
+                                    {% endif %}>PE License</option>
+                            <option value="Printed Circuit Board(PCB)" {% if skill2== "Printed Circuit Board(PCB)" %} selected="selected" 
+                                    {% endif %}>Printed Circuit Board(PCB)</option>                            
+                            <option value="Radar" {% if skill2== "Radar" %} selected="selected" 
+                                    {% endif %}>Radar</option>
                             <option value="SolidWorks" {% if skill2== "SolidWorks" %} selected="selected" 
                                     {% endif %}>SolidWorks</option>
-                            
+                            <option value="Water Resource" {% if skill2== "Water Resource" %} selected="selected" 
+                                    {% endif %}>Water Resource</option>
+                                                                                  
                         </select> <br> <br>
 
                         4. Skill 3:
                         <select name="skill3">
                             <option value="Aircraft" {% if skill3== "Aircraft" %} selected="selected" 
                                     {% endif %}>Aircraft</option>
-                            <option value="Image Processing" {% if skill3== "Image Processing" %} selected="selected" 
-                                    {% endif %}>Image Processing</option>
-                            <option value="Scaling-up/Scaling-down" {% if skill3== "Scaling-up/Scaling-down" %} selected="selected" 
-                                    {% endif %}>Scaling-up/Scaling-down</option>
                             <option value="AutoCAD" {% if skill3== "AutoCAD" %} selected="selected" 
-                                    {% endif %}>AutoCAD</option>
-                            <option value="Field Programmable Gate Array(FPGA)" {% if skill3== "Field Programmable Gate Array(FPGA)" %}
-                                    selected="selected" {% endif %}>Field Programmable Gate Array(FPGA)</option>
+                                    {% endif %}>AutoCAD</option>                            
                             <option value="Circuit Test" {% if skill3== "Circuit Test" %} selected="selected" 
                                     {% endif %}>Circuit Test</option>
                             <option value="Digital Design" {% if skill3== "Digital Design" %} selected="selected" 
                                     {% endif %}>Digital Design</option>
-                            <option value="Remediation" {% if skill3== "Remediation" %} selected="selected" 
-                                    {% endif %}>Remediation</option>
+                            <option value="Field Programmable Gate Array(FPGA)" {% if skill3== "Field Programmable Gate Array(FPGA)" %}
+                                    selected="selected" {% endif %}>Field Programmable Gate Array(FPGA)</option>
+                            <option value="HVAC" {% if skill3== "HVAC" %} selected="selected" 
+                                    {% endif %}>HVAC</option>                            
+                            <option value="Image Processing" {% if skill3== "Image Processing" %} selected="selected" 
+                                    {% endif %}>Image Processing</option>
                             <option value="Industrial Hygiene" {% if skill3== "Industrial Hygiene" %} selected="selected" 
                                     {% endif %}>Industrial Hygiene</option>
-                            <option value="Risk Analysis" {% if skill3== "Risk Analysis" %} selected="selected" 
-                                    {% endif %}>Risk Analysis</option>
                             <option value="Plastics" {% if skill3== "Plastics" %} selected="selected" 
                                     {% endif %}>Plastics</option>
-                            <option value="HVAC" {% if skill3== "HVAC" %} selected="selected" 
-                                    {% endif %}>HVAC</option>
-                            
+                            <option value="Remediation" {% if skill3== "Remediation" %} selected="selected" 
+                                    {% endif %}>Remediation</option>
+                            <option value="Risk Analysis" {% if skill3== "Risk Analysis" %} selected="selected" 
+                                    {% endif %}>Risk Analysis</option>
+                            <option value="Scaling-up/Scaling-down" {% if skill3== "Scaling-up/Scaling-down" %} selected="selected" 
+                                    {% endif %}>Scaling-up/Scaling-down</option>                                                                                                                
                         </select> <br> <br>
                     </p>
                     <p>
@@ -358,15 +361,15 @@
 
                     <br>
                     Top 3 states for {{title1}}: <br>
-                    {{top3_title1[0][0]}}  -- {{top3_title1[0][1]}} openings
-                    {{top3_title1[1][0]}}  -- {{top3_title1[1][1]}} openings
-                    {{top3_title1[2][0]}}  -- {{top3_title1[2][1]}} openings
+                    {{top3_title1[0][0]}}  -- {{top3_title1[0][1]}} openings<br>
+                    {{top3_title1[1][0]}}  -- {{top3_title1[1][1]}} openings<br>
+                    {{top3_title1[2][0]}}  -- {{top3_title1[2][1]}} openings<br>
                     
                     <br>
                     Top 3 states for {{title2}}: <br>
-                    {{top3_title2[0][0]}}  -- {{top3_title2[0][1]}} openings
-                    {{top3_title2[1][0]}}  -- {{top3_title2[1][1]}} openings
-                    {{top3_title2[2][0]}}  -- {{top3_title2[2][1]}} openings
+                    {{top3_title2[0][0]}}  -- {{top3_title2[0][1]}} openings<br>
+                    {{top3_title2[1][0]}}  -- {{top3_title2[1][1]}} openings<br>
+                    {{top3_title2[2][0]}}  -- {{top3_title2[2][1]}} openings<br>
 
                     {% elif prediction_percent1 %}
                     A  professional who has a degree on {{ major }} and
@@ -375,9 +378,18 @@
                     {{ prediction_percent1 }}% chance of job title {{title1}}
                     <br>
                     Top 3 states for {{title1}}: <br>
-                    {{top3_title1[0][0]}}  -- {{top3_title1[0][1]}} openings
-                    {{top3_title1[1][0]}}  -- {{top3_title1[1][1]}} openings
-                    {{top3_title1[2][0]}}  -- {{top3_title1[2][1]}} openings
+                    {{top3_title1[0][0]}}  -- {{top3_title1[0][1]}} openings<br>
+                    {{top3_title1[1][0]}}  -- {{top3_title1[1][1]}} openings<br>
+                    {{top3_title1[2][0]}}  -- {{top3_title1[2][1]}} openings<br>
+                    
+                    {% elif {{title1}} =='Industrial Engineer' %}
+                    A  professional who has a degree on {{ major }} and
+                    skill sets of {{ skill1 }} {{ skill2 }}, {{ skill3 }}
+                    is expected to have <br>
+                    {{ prediction_percent1 }}% chance of job title {{title1}}
+                    
+                    However, the employment data for industrial engineer occupation related industries 
+                    are not available in the dataset. No job openings can be predicted here.
                     
                     {% else %}
                     Select values to make a prediction.
