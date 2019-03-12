@@ -321,12 +321,12 @@
                                     {% endif %}>HVAC</option>                            
                             <option value="Image Processing" {% if skill3== "Image Processing" %} selected="selected" 
                                     {% endif %}>Image Processing</option>
+                            <option value="Industrial Hygiene" {% if skill3== "Industrial Hygiene" %} selected="selected" 
+                                    {% endif %}>Industrial Hygiene</option>
                             <option value="Plastics" {% if skill3== "Plastics" %} selected="selected" 
                                     {% endif %}>Plastics</option>
                             <option value="Remediation" {% if skill3== "Remediation" %} selected="selected" 
                                     {% endif %}>Remediation</option>
-                            <option value="Risk Analysis" {% if skill3== "Risk Analysis" %} selected="selected" 
-                                    {% endif %}>Risk Analysis</option>
                             <option value="Scaling-up/Scaling-down" {% if skill3== "Scaling-up/Scaling-down" %} selected="selected" 
                                     {% endif %}>Scaling-up/Scaling-down</option>                                                                                                                
                         </select> <br> <br>
@@ -365,7 +365,7 @@
 
                     {% elif prediction_percent1 %}
                     A  professional who has a degree on {{ major }} and
-                    skill sets of {{ skill1 }} {{ skill2 }}, {{ skill3 }}
+                    skill sets of {{ skill1 }}, {{ skill2 }}, and {{ skill3 }}
                     is expected to have <br>                    
                     {{ prediction_percent1 }}% chance of job title {{title1}}
                     <br>
@@ -374,7 +374,6 @@
                     {{top3_title1[1][0]}}  -- {{top3_title1[1][1]}} openings<br>
                     {{top3_title1[2][0]}}  -- {{top3_title1[2][1]}} openings<br>
                     
-                   
                     
                     {% else %}
                     Select values to make a prediction.
