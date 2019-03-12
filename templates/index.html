@@ -348,11 +348,12 @@
 
                     Prediction Results: <br>
                     <br>
-                    {% if prediction_percent2 > 10 %}
+                    {% if prediction_percent2 %}
                     A  professional who has a degree on {{ major }} and
                     skill sets of {{ skill1 }} {{ skill2 }}, {{ skill3 }}
                     is expected to have <br>
-                    {{ prediction_percent2 }}% chance of job title {{title2}}..
+                    {{ prediction_percent1 }}% chance of job title {{title1}} and
+                    {{ prediction_percent2 }}% chance of job title {{title2}}.
                     <br>
 
                     <br>
@@ -367,10 +368,10 @@
                     {{top3_title2[1][0]}}  -- {{top3_title2[1][1]}} openings
                     {{top3_title2[2][0]}}  -- {{top3_title2[2][1]}} openings
 
-                    {% elif prediction_percent2 <=10 %}
+                    {% elif prediction_percent1 %}
                     A  professional who has a degree on {{ major }} and
                     skill sets of {{ skill1 }} {{ skill2 }}, {{ skill3 }}
-                    is expected to have <br                    
+                    is expected to have <br>                    
                     {{ prediction_percent1 }}% chance of job title {{title1}}
                     <br>
                     Top 3 states for {{title1}}: <br>
@@ -378,7 +379,7 @@
                     {{top3_title1[1][0]}}  -- {{top3_title1[1][1]}} openings
                     {{top3_title1[2][0]}}  -- {{top3_title1[2][1]}} openings
                     
-                    {% elif not prediction_percent1 %}
+                    {% else %}
                     Select values to make a prediction.
                     
                     {% endif %}
