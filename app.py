@@ -1,8 +1,8 @@
 import os
 from flask import Flask, redirect, render_template, request, jsonify
 from flask_bootstrap import Bootstrap
-import pickle
-#import dill
+#import pickle
+import dill
 import numpy as np
 
 app = Flask(__name__)
@@ -12,13 +12,15 @@ Bootstrap(app)
 dir_path = 'models/'
 
 # Load Pickled Models
-with open(dir_path + 'test.pkl', 'rb') as pipe:
-    eng_classifier = pickle.load(pipe)
-#eng_classifier = dill.load(open(dir_path + 'LR_pipe_1vsall.dill', 'rb'))
 
-with open(dir_path + 'eng_open_predict.pkl', 'rb') as pred:
-    prediction_model = pickle.load(pred)
-#prediction_model = dill.load(open(dir_path + 'eng_open_predict.dill', 'rb'))
+
+#with open(dir_path + 'eng_open_predict.pkl', 'rb') as pred:
+#    prediction_model = pickle.load(pred)
+prediction_model = dill.load(open(dir_path + 'eng_open_predict.dill', 'rb'))
+
+#with open(dir_path + 'test.pkl', 'rb') as pipe:
+#    eng_classifier = pickle.load(pipe)
+eng_classifier = dill.load(open(dir_path + 'LR_pipe_1vsall.dill', 'rb'))
 
 @app.route('/')
 def main():
