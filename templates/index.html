@@ -242,8 +242,6 @@
                                     {% endif %}>Electrical Engineering</option>
                             <option value= "Environmental Engineering" {% if major== "Environmental" %} selected="selected" 
                                     {% endif %}>Environmental Engineering</option>
-                            <option value="Industrial Engineering" {% if major== "Industrial" %} selected="selected" 
-                                    {% endif %}>Indutrial Engineering</option>
                             <option value="Material Science" {% if major== "Material" %} selected="selected" 
                                     {% endif %}>Material Science</option>
                             <option value="Mechanical Engineering" {% if major== "Mechanical" %} selected="selected" 
@@ -264,8 +262,6 @@
                                     {% endif %}>Flight Test</option>                        
                             <option value="Health Safety and Environment" {% if skill1== "Health Safety and Environment" %}
                                     selected="selected" {% endif %}>Health Safety and Environment</option>                            
-                            <option value="Industrial Control" {% if skill1== "Industrial Control" %} selected="selected" 
-                                    {% endif %}>Industrial Control</option>
                             <option value="Material Handling" {% if skill1== "Material Handling" %} selected="selected" 
                                     {% endif %}>Material Handling</option>
                             <option value="Mechanical Design" {% if skill1== "Mechanical Design" %} selected="selected" 
@@ -293,9 +289,7 @@
                             <option value="Functional Safety" {% if skill2== "Functional Safety" %} selected="selected" 
                                     {% endif %}>Functional Safety</option>
                             <option value="Human Factor" {% if skill2== "Human Factor" %} selected="selected" 
-                                    {% endif %}>Human Factor</option>   
-                            <option value="Lean Manufacturing Method" {% if skill2== "Lean Manufacturing Method" %} selected="selected" 
-                                    {% endif %}>Lean Manufacturing Method</option>
+                                    {% endif %}>Human Factor</option>  
                             <option value="Material Inspection" {% if skill2== "Material Inspection" %} selected="selected" 
                                     {% endif %}>Material Inspection</option>
                             <option value="PE License" {% if skill2== "PE License" %} selected="selected" 
@@ -327,8 +321,6 @@
                                     {% endif %}>HVAC</option>                            
                             <option value="Image Processing" {% if skill3== "Image Processing" %} selected="selected" 
                                     {% endif %}>Image Processing</option>
-                            <option value="Industrial Hygiene" {% if skill3== "Industrial Hygiene" %} selected="selected" 
-                                    {% endif %}>Industrial Hygiene</option>
                             <option value="Plastics" {% if skill3== "Plastics" %} selected="selected" 
                                     {% endif %}>Plastics</option>
                             <option value="Remediation" {% if skill3== "Remediation" %} selected="selected" 
@@ -382,15 +374,7 @@
                     {{top3_title1[1][0]}}  -- {{top3_title1[1][1]}} openings<br>
                     {{top3_title1[2][0]}}  -- {{top3_title1[2][1]}} openings<br>
                     
-                    {% elif {{title1}} =='Industrial Engineer' %}
-                    A  professional who has a degree on {{ major }} and
-                    skill sets of {{ skill1 }} {{ skill2 }}, {{ skill3 }}
-                    is expected to have <br>
-                    {{ prediction_percent1 }}% chance of job title {{title1}}
-                    
-                    However, the employment data for industrial engineer occupation related industries 
-                    are not available in the dataset. No job openings can be predicted here.
-                    
+                                       
                     {% else %}
                     Select values to make a prediction.
                     
