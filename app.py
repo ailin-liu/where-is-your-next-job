@@ -6,7 +6,7 @@ import pickle
 import numpy as np
 
 app = Flask(__name__)
-app.vars = {}
+#app.vars = {}
 Bootstrap(app)
 
 dir_path = 'models/'
@@ -56,10 +56,10 @@ def index():
         top3_title2 = prediction_model[title2]
 
         # Save vars for re-rendering for prediction:
-        app.vars['major'] = major
-        app.vars['skill1'] = skill1.lower()
-        app.vars['skill2'] = skill2.lower()
-        app.vars['skill3'] = skill3.lower()
+#        app.vars['major'] = major
+#        app.vars['skill1'] = skill1.lower()
+#        app.vars['skill2'] = skill2.lower()
+#        app.vars['skill3'] = skill3.lower()
         if percent_of_title2 > 10:
 #            return render_template('index.html', _anchor="predict",
 #                               major=app.vars['major'], skill1=app.vars['skill1'],
